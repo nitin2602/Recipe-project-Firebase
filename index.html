@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" href="/Burger-icon.png" />
+		<link rel="apple-touch-icon" href="/Burger.jpg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="theme-color" content="#046c4e" />
+		<meta name="description" content="Assessment for Spacenos by Nitin Tripathi" />
+		<meta name="author" content="Nitin Tripathi" />
+		<title>Recipe-project</title>
+
+		<script is:inline>
+			const theme = (() => {
+				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+					return JSON.parse(localStorage.getItem('theme'))
+				}
+
+				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					return 'dark'
+				}
+
+				return 'light'
+			})()
+			if (theme === 'light') {
+				document.documentElement.classList.remove('dark')
+			} else {
+				document.documentElement.classList.add('dark')
+			}
+		</script>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="module" src="/src/_app.tsx"></script>
+	</body>
+</html>
